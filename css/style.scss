@@ -1,0 +1,193 @@
+$cor-principal: #FFCB00;
+$cor-secundaria: #333;
+$cor-vermelha: #F00;
+$font:'Roboto', sans-serif;
+$tamanho: 36px;
+$tamanho2: 16px;
+
+@mixin padding{
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+@mixin sombra($cor){
+    box-shadow: 0 0 20px $cor ;
+}
+
+@mixin margin {
+    margin: 15px;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font: $tamanho2 $font;
+}
+
+body{
+    padding-top: 100px;
+}
+
+.header{
+    width: 100%;
+    top: 0;
+    position: fixed;
+    z-index: 999;
+    background-color: $cor-principal;
+    @include padding();
+    @include sombra(#666);
+    & &-nav{
+        float:right;
+        ul{
+            list-style-type: none;
+            li{
+                display: inline-block;
+                margin: 30px;
+                a{
+                    text-decoration: none; 
+                    color: $cor-secundaria;
+                    font-weight: 700;
+                    transition: all 0.2s;
+                    &:hover{
+                        color: $cor-vermelha;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.banner{
+    img{
+        width: 100%;
+    }
+}
+
+.main{
+    width: 1000px;
+    margin: 50px auto;
+    h1{
+        font-size: $tamanho;
+        font-weight: 700;
+        text-align: center;
+        margin: 30px;
+    }
+
+    h2{
+        font-size: $tamanho2;
+        font-weight: 700;
+        text-align: center;
+        @include margin();
+    }
+
+    & &-grid{
+        display: grid;
+        grid-template-columns: repeat(3, 33.33%);
+    }
+
+    &-coluna {
+        @include sombra(#666);
+        @include padding();
+        @include margin();
+        text-align: center;
+        border-radius: 2rem;
+        img{
+            width: 100%;
+            transition: all 0.5s;
+            border-radius: 5rem;
+            &:hover{
+                transform: scale(1.1);
+            }
+        }
+    }
+
+    & &-grid-detalhes{
+        display: grid;
+        grid-template-columns: 40% 60% ;
+        .coluna-detalhes{
+            @include padding();
+        }
+    }
+
+    .img{
+        background-color: #F1F1F1;
+        @include sombra(#666);
+        @include padding();
+        border-radius: 10px;
+        width: 100%;
+        transition: all 0.5s;
+        &:hover{
+            transform: scale(1.1);
+        }
+    }
+
+    .valor{
+        text-align: center;
+        color: $cor-vermelha;
+        font-weight: 700;
+        font-size: 1.3em;
+    }
+
+    & &-grid-info{
+        display: grid;
+        margin: 30px 0;
+        grid-template-columns: repeat(4,25%);
+        .grid-coluna-info{
+            text-align: center;
+            @include padding();
+            margin: 5px;
+            border: 1px solid #ccc;
+            border-radius: 2rem;
+            small{
+                font-size: 0.8em;
+                color: #333;
+            }
+            transition: all 0.5s;
+            &:hover{
+                transform: scale(1.1);
+            }
+        }
+    }
+
+    .btn{
+        background-color: $cor-secundaria;
+        color: $cor-principal;
+        text-decoration: none;
+        @include margin();
+        display: inline-block;
+        padding: 10px 20px;
+        border-radius: 2rem;
+        transition: all 0.3s;
+        @include sombra(#CCC);
+        &:hover{
+            background-color: $cor-principal;
+            color: $cor-secundaria;
+            
+        }
+    }
+}
+
+.footer{
+    background-color: $cor-principal;
+    @include padding();
+    @include sombra(#666);
+    p{
+        text-align: center;
+        a{
+            background-color: $cor-secundaria;
+            color: $cor-principal;
+            text-decoration: none;
+            display: inline-block;
+            margin: 20px;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            border-radius: 100%;
+            transition: all 0.5s;
+            &:hover{
+                background-color: $cor-vermelha;
+            }
+        }
+    }
+}
